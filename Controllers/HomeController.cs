@@ -26,5 +26,18 @@ namespace ProyectoFinalPrograAvanzada.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Your Login page.";
+
+            return View("Login");
+        }
+        public ActionResult Register()
+        {
+            ViewBag.Message = "Your Register page.";
+
+            return View();
+        }
     }
 }
