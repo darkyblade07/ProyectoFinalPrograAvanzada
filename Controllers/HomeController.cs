@@ -5,12 +5,14 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoFinalPrograAvanzada.Entities;
-
+using ProyectoFinalPrograAvanzada.Model;
 
 namespace ProyectoFinalPrograAvanzada.Controllers
 {
     public class HomeController : Controller
     {
+        UserModel model = new UserModel();
+
         public ActionResult Index()
         {
             return View();
@@ -44,12 +46,14 @@ namespace ProyectoFinalPrograAvanzada.Controllers
         }
         public ActionResult IniciarSesion(UserEnt entidad)
         {
-            
+            model.IniciarSesion(entidad);
+
             return RedirectToAction("Index", "Home");
         }
         public ActionResult RegistrarUsuario(UserEnt entidad)
         {
-            
+            model.RegistrarUsuario(entidad);
+
             return RedirectToAction("Login", "Home");
         }
     }
