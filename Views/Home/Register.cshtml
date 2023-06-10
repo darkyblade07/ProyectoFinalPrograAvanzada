@@ -1,4 +1,4 @@
-﻿@* @model  ProyectoFinalPrograAvanzada.Entities.UserEnt*@
+﻿ @model  ProyectoFinalPrograAvanzada.Entities.UserEnt
 
 @{
     ViewBag.Title = "Register";
@@ -14,19 +14,20 @@
             <p class="text-center small">Enter your personal details to create account</p>
         </div>
 
-        <form class="row g-3 needs-validation" novalidate>
+        @using (Html.BeginForm("RegistrarUsuario", "Home", FormMethod.Post))
+        {
             <div class="col-12">
                 <label for="yourName" class="form-label">Your Name</label>
                 <input type="text" name="name" class="form-control" id="yourName" required>
                 <div class="invalid-feedback">Please, enter your name!</div>
-                @* @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "Name", @class = "form-control" })*@
+                @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "Name", @class = "form-control" })
 
             </div>
 
             <div class="col-12">
                 <label for="yourEmail" class="form-label">Your Email</label>
                 <input type="email" name="email" class="form-control" id="yourEmail" required>
-                @* @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Email", @class = "form-control" })*@
+                @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Email", @class = "form-control" })
 
                 <div class="invalid-feedback">Please enter a valid Email adddress!</div>
             </div>
@@ -36,7 +37,7 @@
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend"></span>
                     <input type="text" name="username" class="form-control" id="yourUsername" required>
-                    @*@Html.TextBoxFor(m => m.Username, new { @type = "text", @placeholder = "Username", @class = "form-control" })*@
+                    @Html.TextBoxFor(m => m.Username, new { @type = "text", @placeholder = "Username", @class = "form-control" })
 
                     <div class="invalid-feedback">Please choose a username.</div>
                 </div>
@@ -45,7 +46,7 @@
             <div class="col-12">
                 <label for="yourPassword" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="yourPassword" required>
-                @* @Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "Password", @class = "form-control" })*@
+                @Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "Password", @class = "form-control" })
 
                 <div class="invalid-feedback">Please enter your password!</div>
             </div>
@@ -61,9 +62,9 @@
                 <button class="btn btn-primary w-100" type="submit">Create Account</button>
             </div>
             <div class="col-12">
-                <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
+                <p class="small mb-0">Already have an account? <a href="@Url.Action("Login", "Home")">Log in</a></p>
             </div>
-        </form>
+        }
 
-    </div>
+        </div>
 </div>

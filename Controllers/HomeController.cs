@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using ProyectoFinalPrograAvanzada.Entities;
+
 
 namespace ProyectoFinalPrograAvanzada.Controllers
 {
@@ -38,6 +41,16 @@ namespace ProyectoFinalPrograAvanzada.Controllers
             ViewBag.Message = "Your Register page.";
 
             return View();
+        }
+        public ActionResult IniciarSesion(UserEnt entidad)
+        {
+            
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult RegistrarUsuario(UserEnt entidad)
+        {
+            
+            return RedirectToAction("Login", "Home");
         }
     }
 }
