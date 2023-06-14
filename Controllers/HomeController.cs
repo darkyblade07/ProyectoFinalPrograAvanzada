@@ -32,11 +32,10 @@ namespace ProyectoFinalPrograAvanzada.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
-            ViewBag.Message = "Your Login page.";
-
-            return View("Login");
+            return View();
         }
         public ActionResult Register()
         {
