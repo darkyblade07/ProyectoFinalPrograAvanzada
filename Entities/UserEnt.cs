@@ -12,5 +12,7 @@ namespace ProyectoFinalPrograAvanzada.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public bool State { get; set; }
+
+        public int IdRole { get; set; }
     }
 }

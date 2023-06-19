@@ -13,6 +13,7 @@ namespace ProyectoFinalPrograAvanzada.Controllers
     {
         UserModel model = new UserModel();
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -37,23 +38,36 @@ namespace ProyectoFinalPrograAvanzada.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult Register()
         {
             ViewBag.Message = "Your Register page.";
 
             return View();
         }
+        
+        [HttpPost]
         public ActionResult IniciarSesion(UserEnt entidad)
         {
-            model.IniciarSesion(entidad);
+           
+            var resp = model.IniciarSesion(entidad);
 
-            return RedirectToAction("Index", "Home");
+            if (resp != null)
+                return RedirectToAction("Index", "Home");
+            else
+                return View("Login");
         }
+
+        [HttpPost]
         public ActionResult RegistrarUsuario(UserEnt entidad)
         {
-            model.RegistrarUsuario(entidad);
 
-            return RedirectToAction("Login", "Home");
+          var resp =  model.RegistrarUsuario(entidad);
+
+            if (resp > 0)
+                return RedirectToAction("Login", "Home");
+            else
+                return View("Registro");
         }
     }
 }
