@@ -1,4 +1,4 @@
-﻿@model ProyectoFinalPrograAvanzada.Entidades.UserEnt
+﻿@model ProyectoFinalPrograAvanzada.Entities.UserEnt
 
 @{
     ViewBag.Title = "Register";
@@ -18,7 +18,7 @@
         {
             <div class="col-12">
                 <label for="yourName" class="form-label">Your Name</label>
-                <input type="text" name="name" class="form-control" id="yourName" required>
+               
                 <div class="invalid-feedback">Please, enter your name!</div>
                 @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "Name", @class = "form-control" })
 
@@ -26,7 +26,7 @@
 
             <div class="col-12">
                 <label for="yourEmail" class="form-label">Your Email</label>
-                <input type="email" name="email" class="form-control" id="yourEmail" required>
+              
                 @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Email", @class = "form-control" })
 
                 <div class="invalid-feedback">Please enter a valid Email adddress!</div>
@@ -36,7 +36,6 @@
                 <label for="yourUsername" class="form-label">Username</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend"></span>
-                    <input type="text" name="username" class="form-control" id="yourUsername" required>
                     @Html.TextBoxFor(m => m.Username, new { @type = "text", @placeholder = "Username", @class = "form-control" })
 
                     <div class="invalid-feedback">Please choose a username.</div>
@@ -45,7 +44,6 @@
 
             <div class="col-12">
                 <label for="yourPassword" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="yourPassword" required>
                 @Html.TextBoxFor(m => m.Password, new { @type = "password", @placeholder = "Password", @class = "form-control" })
 
                 <div class="invalid-feedback">Please enter your password!</div>
