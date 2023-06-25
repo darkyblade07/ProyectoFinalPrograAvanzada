@@ -45,29 +45,46 @@ namespace ProyectoFinalPrograAvanzada.Controllers
 
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult IniciarSesion(UserEnt entidad)
         {
-           
-            var resp = model.IniciarSesion(entidad);
 
-            if (resp != null)
+            var resp = model.IniciarSesion(entidad);
+            try
+            {
+                if (resp != null)
                 return RedirectToAction("Index", "Home");
             else
+            {
+                ViewBag.MsjPantalla = "No se ha podido validar su datos";
                 return View("Login");
+            } } catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
 
         [HttpPost]
         public ActionResult RegistrarUsuario(UserEnt entidad)
         {
+            try
+            {
+                var resp = model.RegistrarUsuario(entidad);
 
-          var resp =  model.RegistrarUsuario(entidad);
+                if (resp > 0)
+                    return RedirectToAction("Login", "Home");
+                else
+                {
+                    ViewBag.MsjPantalla = "No se ha podido validar su datos";
+                    return View("Registro");
 
-            if (resp > 0)
-                return RedirectToAction("Login", "Home");
-            else
-                return View("Registro");
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
     }
 }
