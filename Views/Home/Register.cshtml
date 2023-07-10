@@ -16,9 +16,11 @@
 
         @using (Html.BeginForm("RegistrarUsuario", "Home", FormMethod.Post))
         {
+            @ViewBag.MsjPantalla
+
             <div class="col-12">
                 <label for="yourName" class="form-label">Your Name</label>
-               
+
                 <div class="invalid-feedback">Please, enter your name!</div>
                 @Html.TextBoxFor(m => m.Name, new { @type = "text", @placeholder = "Name", @class = "form-control" })
 
@@ -26,7 +28,7 @@
 
             <div class="col-12">
                 <label for="yourEmail" class="form-label">Your Email</label>
-              
+
                 @Html.TextBoxFor(m => m.Email, new { @type = "email", @placeholder = "Email", @class = "form-control" })
 
                 <div class="invalid-feedback">Please enter a valid Email adddress!</div>

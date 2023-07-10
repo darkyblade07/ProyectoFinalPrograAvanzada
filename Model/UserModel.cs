@@ -2,6 +2,7 @@
 using ProyectoFinalPrograAvanzada.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -16,7 +17,7 @@ namespace ProyectoFinalPrograAvanzada.Model
             using (var client = new HttpClient())
             {
 
-                string url = "https://localhost:44390/api/IniciarSesion";
+                string url = ConfigurationManager.AppSettings["urlApi"].ToString()+"api/IniciarSesion";
                 JsonContent body = JsonContent.Create(entidad);
                 HttpResponseMessage resp = client.PostAsync(url, body).Result;
 
@@ -35,7 +36,8 @@ namespace ProyectoFinalPrograAvanzada.Model
             using (var client = new HttpClient())
             {
 
-                string url = "https://localhost:44390/api/RegistrarUsuario";
+                
+                string url = ConfigurationManager.AppSettings["urlApi"].ToString() +"api/RegistrarUsuario";
                 JsonContent body = JsonContent.Create(entidad); 
                 HttpResponseMessage resp = client.PostAsync(url, body).Result;
 

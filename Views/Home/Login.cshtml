@@ -19,7 +19,7 @@
             @using (Html.BeginForm("IniciarSesion", "Home", FormMethod.Post))
             {
 
-                @if (ViewBag.MsjPantalla != null)
+               if (ViewBag.MsjPantalla != null)
                 {
                     <div style="text-align:center" class="alert alert-warning" role="alert">
                         @ViewBag.MsjPantalla
