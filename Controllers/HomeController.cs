@@ -83,9 +83,7 @@ namespace ProyectoFinalPrograAvanzada.Controllers
             try
             {
                 
-                entidad.IdRole = 1;
-                entidad.State = true;
-
+                
                 var resp = model.RegistrarUsuario(entidad);
 
                 if (resp > 0)
