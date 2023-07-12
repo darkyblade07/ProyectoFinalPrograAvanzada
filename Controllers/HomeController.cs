@@ -64,7 +64,6 @@ namespace ProyectoFinalPrograAvanzada.Controllers
                 else
                 {
 
-                    ViewBag.MsjPantalla = "Couldn't validate your request";
 
                     return View("Login");
                 }
