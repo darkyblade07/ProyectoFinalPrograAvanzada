@@ -31,6 +31,7 @@ namespace ProyectoFinalPrograAvanzada.Model
             }
         }
 
+
         public int RegistrarUsuario(UserEnt entidad)
         {
             using (var client = new HttpClient())

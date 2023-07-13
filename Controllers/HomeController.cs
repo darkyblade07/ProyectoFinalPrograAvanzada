@@ -98,6 +98,14 @@ namespace ProyectoFinalPrograAvanzada.Controllers
                 return View("Error");
             }
         }
-    }
+
+        [HttpGet]
+        public ActionResult CerrarSesion()
+        {
+            Session.Clear();
+            return RedirectToAction("Login", "Home");
+        }
 
     }
+
+}
