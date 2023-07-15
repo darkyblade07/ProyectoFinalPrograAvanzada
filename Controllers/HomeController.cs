@@ -46,6 +46,12 @@ namespace ProyectoFinalPrograAvanzada.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Recuperar()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult IniciarSesion(UserEnt entidad)
         {
@@ -105,6 +111,27 @@ namespace ProyectoFinalPrograAvanzada.Controllers
             Session.Clear();
             return RedirectToAction("Login", "Home");
         }
+        [HttpPost]
+        public ActionResult RecuperarContrasenna(UserEnt entidad)
+        {
+            try
+            {
+                var resp = model.RecuperarContrasenna(entidad);
+
+                if (resp)
+                    return RedirectToAction("Login", "Home");
+                else
+                {
+                   
+                    return View("Recuperar");
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
+        }
+
 
     }
 

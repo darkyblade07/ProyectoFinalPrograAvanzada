@@ -1,0 +1,50 @@
+﻿@model ProyectoFinalPrograAvanzada.Entities.UserEnt
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_AccessLayout.cshtml";
+
+}
+
+<main>
+    <div class="card mb-3">
+
+        <div class="card-body">
+
+            <div class="pt-4 pb-2">
+                <h5 class="card-title text-center pb-0 fs-4">Recover Password</h5>
+                <p class="text-center small">Enter your Email</p>
+            </div>
+
+            @using (Html.BeginForm("RecuperarContrasenna", "Home", FormMethod.Post))
+            {
+
+
+
+                <div class="col-12">
+                   
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend"></span>
+
+                        @Html.TextBoxFor(m => m.Email, new { @type = "text", @placeholder = "Email", @class = "form-control" })
+
+                        <div class="invalid-feedback">Please enter your Email.</div>
+                    </div>
+                </div>
+
+               
+
+
+                <div class="col-12">
+
+                    <button class="btn btn-primary w-100 mt-3 mb-1" type="submit">Send temporary password</button>
+
+                </div>
+                <div class="col-12">
+                    <p class="small mb-0 mt-3">Don't have account? <a href="@Url.Action("Register", "Home")">Create an account</a></p>
+                </div>
+                
+            }
+        </div>
+    </div>
+</main>

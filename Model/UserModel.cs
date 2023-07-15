@@ -50,6 +50,22 @@ namespace ProyectoFinalPrograAvanzada.Model
                 return 0;
             }
         }
+        public bool RecuperarContrasenna(UserEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/RecuperarContrasenna";
+                JsonContent body = JsonContent.Create(entidad); //Serializar
+                HttpResponseMessage resp = client.PostAsync(url, body).Result;
+
+                if (resp.IsSuccessStatusCode)
+                {
+                    return resp.Content.ReadFromJsonAsync<bool>().Result;
+                }
+
+                return false;
+            }
+        }
 
     }
 }
